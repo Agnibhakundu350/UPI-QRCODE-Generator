@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UPI QR Generator</title>
+    <style>
+      body { font-family: Arial, sans-serif; padding: 2rem; }
+      form { max-width: 480px; }
+      input, button { font-size: 1rem; padding: 0.5rem; width: 100%; margin: 0.25rem 0; }
+      .links { margin-top: 1rem; }
+      .error { color: #b00020; }
+    </style>
+  </head>
+  <body>
+    <h1>UPI QR Generator</h1>
+    {% if error %}
+      <p class="error">{{ error }}</p>
+    {% endif %}
+    <form method="post" action="/generate">
+      <label>UPI ID (pa)</label>
+      <input name="pa" placeholder="example@bank" required />
+
+      <label>Payee name (pn) — optional</label>
+      <input name="pn" placeholder="Name" />
+
+      <label>Amount (am) — optional</label>
+      <input name="am" placeholder="100.00" />
+
+      <label>Transaction note (tn) — optional</label>
+      <input name="tn" placeholder="Note" />
+
+      <button type="submit">Generate QR</button>
+    </form>
+
+    <div class="links">
+      <h3>Official links</h3>
+      <ul>
+        <li><a href="https://pay.google.com" target="_blank">Google Pay</a></li>
+        <li><a href="https://paytm.com" target="_blank">Paytm</a></li>
+        <li><a href="https://www.phonepe.com" target="_blank">PhonePe</a></li>
+      </ul>
+    </div>
+  </body>
+</html>

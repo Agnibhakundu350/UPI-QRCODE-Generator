@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UPI QR — Result</title>
+    <style>
+      body { font-family: Arial, sans-serif; padding: 2rem; }
+      .qr { margin-top: 1rem; }
+      img { max-width: 320px; height: auto; }
+      .uri { font-family: monospace; background: #f6f6f6; padding: 0.5rem; display: inline-block; }
+    </style>
+  </head>
+  <body>
+    <h1>QR for: {{ pa }}</h1>
+    <p class="uri">{{ uri }}</p>
+
+    <div class="qr">
+      <h3>Scan with any UPI app</h3>
+      <img src="data:image/png;base64,{{ qr_b64 }}" alt="UPI QR" />
+    </div>
+
+    <p><a href="/">Create another</a></p>
+
+    <div class="links">
+      <h3>Official links</h3>
+      <ul>
+        <li><a href="https://pay.google.com" target="_blank">Google Pay</a></li>
+        <li><a href="https://paytm.com" target="_blank">Paytm</a></li>
+        <li><a href="https://www.phonepe.com" target="_blank">PhonePe</a></li>
+      </ul>
+    </div>
+  </body>
+</html>
